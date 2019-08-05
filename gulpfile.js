@@ -1,10 +1,16 @@
-// Подключаем Gulp
-var gulp = require("gulp"); 
-
-// Создаем простой таск
-gulp.task('myFirstTask', function() {
- console.log('Привет, я твой первый таск!');
+'use strict';
+ 
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+ 
+sass.compiler = require('node-sass');
+ 
+gulp.task('sass', function () {
+  return gulp.src('./src/scss/style.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./src/css'));
 });
-
-// Запуск тасков по умолчанию
-gulp.task("default", gulp.series('myFirstTask'));
+ 
+gulp.task('sass:watch', function () {
+  gulp.watch('./src/scss/style.scss', ['sass']);
+});
