@@ -1,3 +1,5 @@
+$test_color: #f8ff;
+
 .wrapper {
     height: 800px;
     display: flex;
@@ -5,6 +7,6 @@
     align-items: center;
 }
 
-.wrapper_2 {
-    color: #ccc;
+.wrapper_3 {
+    color: $test_color;
 }
